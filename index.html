@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Get Bread - Vault Entry</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <p>Enter the password to access the showroom.</p>
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="checkPassword()">Enter</button>
+
+    <p>Need a password? Join the waitlist below:</p>
+    <input type="email" id="waitlistEmail" placeholder="Your email">
+    <button onclick="joinWaitlist()">Join Waitlist</button>
+
+    <p id="message"></p>
+  </div>
+
+  <script>
+    const correctPassword = "bread2025"; // Change later
+
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      if(input === correctPassword) {
+        window.location.href = "login.html";
+      } else {
+        document.getElementById('message').innerText = "Incorrect password.";
+      }
+    }
+
+    function joinWaitlist() {
+      const email = document.getElementById('waitlistEmail').value;
+      if(email) {
+        // Placeholder: later push to Firebase
+        document.getElementById('message').innerText = `Thanks! ${email} added to waitlist.`;
+      } else {
+        document.getElementById('message').innerText = "Enter a valid email.";
+      }
+    }
+  </script>
+</body>
+</html>
